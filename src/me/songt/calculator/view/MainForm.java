@@ -318,6 +318,7 @@ public class MainForm
             double ans = calculation.calculate();
             this.textOut.setText(Double.toString(ans));
         }
+        this.isOperationExecutedRecently = true;
         System.out.println("Num Stack:" + calculation.countOfNumStack());
         System.out.println("Sym Stack:" + calculation.countOfSymStack());
     }
