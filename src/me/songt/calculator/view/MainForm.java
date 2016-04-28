@@ -157,6 +157,47 @@ public class MainForm
             this.setOutputText(Double.toString(number));
         });
 
+        btnMemSav.addActionListener(e -> {
+            double number = controller.parseExpr(this.getOutputText());
+            controller.memSave(number);
+            memStatus.setText(String.valueOf(controller.memRecall()));
+        });
+
+        btnMemClr.addActionListener(e -> {
+            controller.memClean();
+            memStatus.setText("");
+        });
+
+        btnMemPls.addActionListener(e -> {
+            double number = controller.parseExpr(this.getOutputText());
+            controller.memPlus(number);
+            memStatus.setText(String.valueOf(controller.memRecall()));
+        });
+
+        btnMemRec.addActionListener(e -> {
+            this.setOutputText(String.valueOf(controller.memRecall()));
+        });
+
+        btnCE.addActionListener(e -> {
+            calculation.cleanAll();
+            this.setOutputText("0.0");
+        });
+
+        btnC.addActionListener(e -> {
+            String currentData = this.getOutputText();
+            if(currentData.equals("0.0"))
+            {
+                return;
+            }
+            this.setOutputText(currentData.substring(0, currentData.length() - 1));
+            if(this.getOutputText().equals(""))
+            {
+                this.setOutputText("0.0");
+            }
+
+
+        });
+
         btnEql.addActionListener(e -> this.doEqual());
     }
 

@@ -27,11 +27,21 @@ public class CalculatorController
 
     public void memPlus(double num)
     {
-
+        this.memNumber += num;
     }
 
     public void memClean()
     {
+        this.memNumber = 0.0;
+    }
 
+    public void memSave(double num)
+    {
+        this.memNumber = num;
+    }
+
+    public double memRecall()
+    {
+        return this.memNumber;
     }
 }
