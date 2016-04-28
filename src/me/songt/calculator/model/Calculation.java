@@ -107,4 +107,11 @@ public class Calculation
         }
         return 0.0;
     }
+
+    public void cleanAll()
+    {
+        this.cleanNumStack();
+        this.cleanSymStack();
+    }
+
 }
